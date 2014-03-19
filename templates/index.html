@@ -1,0 +1,28 @@
+<!doctype html>
+<head>
+    <title>Partytime!</title>
+
+    <!-- Styles -->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/styles.css') }}" />
+
+    <!-- js -->
+    <script src="http://code.jquery.com/jquery-1.9.0.js"></script>
+    <script src="{{ url_for('static', filename='js/jquery-bigtext.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/magic.js') }}"></script>
+</head>
+
+<body>
+    <video class="video" autoplay></video>
+
+    <div class="start">
+
+        <button class='start-button' type='button'>Take Photo</button>
+
+
+        <div class="countdown-number three">3</div>
+        <div class="countdown-number two">2</div>
+        <div class="countdown-number one">1</div>
+        <div class="countdown-number go">Go!</div>
+    </div>
+
+</body>
