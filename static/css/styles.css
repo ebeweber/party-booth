@@ -41,3 +41,25 @@ video {
     height: 100%;
     z-index: 1;
 }
+
+/* Displaying the picture*/
+#filmroll {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+#filmroll img {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    margin: auto;
+
+    transform:rotate(-8deg);
+    -ms-transform:rotate(-8deg); /* IE 9 */
+    -webkit-transform:rotate(-8deg); /* Opera, Chrome, and Safari */
+
+    border: 2px black solid;
+}

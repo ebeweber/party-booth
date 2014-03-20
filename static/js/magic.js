@@ -46,7 +46,12 @@ $(document).ready(function() {
         // This works in the console.. but not on the page
         console.log("Attempting to flash");
         $('.flash').show().animate({"opacity": 0.5}, 300).fadeOut(300).css({'opacity': 1});
+        $('.flash').show().animate({"opacity": 0.5}, 300).fadeOut(300).css({'opacity': 1});
         console.log("Done flashing");
+
+        console.log("Snapping a picture");
+        snap();
+        console.log("Done snapping");
     };
 
     // Web Cam Logic
@@ -62,7 +67,10 @@ $(document).ready(function() {
     );
 
     function snap() {
-        live = document.getElementById("live")
+        // Hide the go
+        $(".go").hide()
+
+        live = document.querySelector('video');
         snapshot = document.getElementById("snapshot")
         filmroll = document.getElementById("filmroll")
 
@@ -75,11 +83,10 @@ $(document).ready(function() {
         c.drawImage(live, 0, 0, snapshot.width, snapshot.height)
 
         // Create an image element with the canvas image data
-        img = document.createElement("img")
+        img = document.querySelector('img')
         img.src = snapshot.toDataURL("image/png")
-        img.style.padding = 5
-        img.width = snapshot.width / 2
-        img.height = snapshot.height / 2
+        img.width = snapshot.width / 1.5
+        img.height = snapshot.height / 1.5
 
         // Add the new image to the film roll
         filmroll.appendChild(img)
