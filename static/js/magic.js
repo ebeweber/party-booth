@@ -42,6 +42,13 @@ $(document).ready(function() {
         $('.one').hide();
         $('.go').show();
         $('.go').bigText();
+
+        // This works in the console.. but not on the page
+        console.log("Attempting to flash");
+        $('.flash').show()
+            .animate({opacity: 0.5}, 300)
+            .fadeOut(300)
+            .css({'opacity': 1});
     };
 
     // Web Cam Logic
