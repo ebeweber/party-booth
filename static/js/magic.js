@@ -45,10 +45,8 @@ $(document).ready(function() {
 
         // This works in the console.. but not on the page
         console.log("Attempting to flash");
-        $('.flash').show()
-            .animate({opacity: 0.5}, 300)
-            .fadeOut(300)
-            .css({'opacity': 1});
+        $('.flash').show().animate({"opacity": 0.5}, 300).fadeOut(300).css({'opacity': 1});
+        console.log("Done flashing");
     };
 
     // Web Cam Logic
@@ -63,27 +61,27 @@ $(document).ready(function() {
         }
     );
 
-      // function snap() {
-      //   live = document.getElementById("live")
-      //   snapshot = document.getElementById("snapshot")
-      //   filmroll = document.getElementById("filmroll")
+    function snap() {
+        live = document.getElementById("live")
+        snapshot = document.getElementById("snapshot")
+        filmroll = document.getElementById("filmroll")
 
-      //   // Make the canvas the same size as the live video
-      //   snapshot.width = live.clientWidth
-      //   snapshot.height = live.clientHeight
+        // Make the canvas the same size as the live video
+        snapshot.width = live.clientWidth
+        snapshot.height = live.clientHeight
 
-      //   // Draw a frame of the live video onto the canvas
-      //   c = snapshot.getContext("2d")
-      //   c.drawImage(live, 0, 0, snapshot.width, snapshot.height)
+        // Draw a frame of the live video onto the canvas
+        c = snapshot.getContext("2d")
+        c.drawImage(live, 0, 0, snapshot.width, snapshot.height)
 
-      //   // Create an image element with the canvas image data
-      //   img = document.createElement("img")
-      //   img.src = snapshot.toDataURL("image/png")
-      //   img.style.padding = 5
-      //   img.width = snapshot.width / 2
-      //   img.height = snapshot.height / 2
+        // Create an image element with the canvas image data
+        img = document.createElement("img")
+        img.src = snapshot.toDataURL("image/png")
+        img.style.padding = 5
+        img.width = snapshot.width / 2
+        img.height = snapshot.height / 2
 
-      //   // Add the new image to the film roll
-      //   filmroll.appendChild(img)
-      // }
+        // Add the new image to the film roll
+        filmroll.appendChild(img)
+    }
 });
