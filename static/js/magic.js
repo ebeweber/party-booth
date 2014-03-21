@@ -1,13 +1,35 @@
 $(document).ready(function() {
     // Hide everything else initially
     $(".countdown-number").hide();
+    $("#filmroll").hide();
+
+    // Fire this off once first so it works
+    $('.flash').show().animate({"opacity": 0.5}, 300).fadeOut(300).css({'opacity': 1});
 
     // Attach Events
     $(".start-button").click(function() {
         beginCountdown();
     });
 
+    $(".twitter").click(function() {
+        console.log("Twitter button clicked.");
+    });
 
+    $(".reset").click(function() {
+        console.log("Reset button clicked.");
+        resetBooth();
+    });
+
+    var resetBooth = function() {
+        $("#filmroll").hide();
+        $(".countdown-number").hide();
+        $(".shadow").hide();
+        $('.start-button').show();
+
+        img = document.querySelector('img')
+        img.src = ""
+
+    };
 
     // Fire off countdown
     var beginCountdown = function() {
@@ -46,7 +68,6 @@ $(document).ready(function() {
         // This works in the console.. but not on the page
         console.log("Attempting to flash");
         $('.flash').show().animate({"opacity": 0.5}, 300).fadeOut(300).css({'opacity': 1});
-        $('.flash').show().animate({"opacity": 0.5}, 300).fadeOut(300).css({'opacity': 1});
         console.log("Done flashing");
 
         console.log("Snapping a picture");
@@ -69,6 +90,7 @@ $(document).ready(function() {
     function snap() {
         // Hide the go
         $(".go").hide()
+        $('#filmroll').show();
 
         live = document.querySelector('video');
         snapshot = document.getElementById("snapshot")
@@ -88,7 +110,7 @@ $(document).ready(function() {
         img.width = snapshot.width / 1.5
         img.height = snapshot.height / 1.5
 
-        // Add the new image to the film roll
-        filmroll.appendChild(img)
+        // Show all the good stuff
+        $(".shadow").show()
     }
 });
